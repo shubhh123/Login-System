@@ -1,0 +1,19 @@
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TokenService {
+
+	
+	private JwtEncoder jwtEncoder;
+	private JwtDecoder jwtDecoder;
+	
+	@Autowired
+	public TokenService(JwtEncoder jwtEncoder, JwtDecoder jwtDecoder) {
+		this.jwtDecoder = jwtDecoder;
+	}
+}

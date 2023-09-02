@@ -1,0 +1,39 @@
+package com.example.demo.services;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Role;
+
+@Service
+public class UserService implements UserDetailsService{
+
+	
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	public UserService(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("Inside UserFetals service");
+		
+		if(!username.equals("shubh")) 
+			throw new UsernameNotFoundException("Username "+ username+ " not found");
+		
+		Set<Role> roles = new HashSet<Role>();
+		
+		
+		return null;
+	}
+
+}

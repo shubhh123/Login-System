@@ -1,0 +1,1 @@
+Everytime we don't want to authenticate users with their username and password. For that we generate a token for them and validate using that token

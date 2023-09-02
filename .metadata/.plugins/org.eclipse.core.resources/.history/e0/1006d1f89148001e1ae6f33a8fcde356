@@ -1,0 +1,14 @@
+package com.example.demo.dto;
+
+public class ApplicationUserDTO {
+
+	private String username;
+
+	private String password;
+	
+	public ApplicationUserDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

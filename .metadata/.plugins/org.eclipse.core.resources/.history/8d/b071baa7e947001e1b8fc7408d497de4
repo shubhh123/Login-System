@@ -1,0 +1,31 @@
+package com.example.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.example.demo.model.Role;
+import com.example.demo.repository.RoleRepository;
+import com.example.demo.repository.UserRepository;
+
+@SpringBootApplication
+public class LoginSystemApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LoginSystemApplication.class, args);
+	}
+	
+	@Bean
+	CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
+		return args -> {
+			
+			//Everytime our application starts up, it will add this role in the database
+			Role adminRole = roleRepository.save(new Role("ADMIN"));
+			roleRepository.save(new Role("USER"));
+			
+		};
+	}
+
+}

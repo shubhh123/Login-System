@@ -1,0 +1,24 @@
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.demo.repository.UserRepository;
+
+
+
+@Service
+@Transactional
+public class AuthenticationService {
+
+	private UserRepository userRepository;
+	
+	@Autowired
+	public AuthenticationService(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+	
+	//Whenever we create a user, we also want to attach roles to it.
+	
+}

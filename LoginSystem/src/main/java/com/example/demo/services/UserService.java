@@ -1,0 +1,65 @@
+package com.example.demo.services;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.ApplicationUser;
+import com.example.demo.model.Role;
+import com.example.demo.repository.UserRepository;
+
+
+/*
+ * I dont want the user to enter the username and password everytime.
+ * For this i want to generate a token, which will be generated for the first request
+ * so that the user can use to send
+ * requests to the server.
+ */
+
+
+
+
+@Service
+public class UserService implements UserDetailsService{
+
+	
+	private PasswordEncoder passwordEncoder;
+	
+	private UserRepository userRepository;
+	
+	@Autowired
+	public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository) {
+		this.passwordEncoder = passwordEncoder;
+		this.userRepository = userRepository;
+	}
+	
+	
+	/*
+	 * Spring Security automatically calls loadUserByUsername() 
+	 * method when needed to fetch user details for 
+	 * authentication.
+	 */
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("Inside User Details service");
+		return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("user is not valid"));
+	}
+
+}
+
+/*
+ * 
+ * if(!username.equals("Shubham")) 
+			throw new UsernameNotFoundException("Username "+ username+ " not found");
+		
+		Set<Role> roles = new HashSet<Role>();
+		roles.add(new Role(1, "USER"));
+		
+		return new ApplicationUser(1,"Shubham", passwordEncoder.encode("password"), roles);
+ */

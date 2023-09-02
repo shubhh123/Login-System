@@ -1,0 +1,19 @@
+package com.example.demo.utils;
+
+import java.security.KeyPair;
+
+/*
+ * Used to generate keys
+ */
+public class KeyGeneratorUtility {
+
+	
+	public static KeyPair keyPairs() {
+		
+		KeyPair keyPair;
+		
+		
+		
+		return null;
+	}
+}

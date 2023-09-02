@@ -1,0 +1,5 @@
+1693550200283	Rename type 'AuthenticationDto'
+1693550407216	Rename type 'ApplicationUserDTO'
+1693552700194	Rename type 'RsaKeyProperties'
+1693565927229	Rename local variable 'jwtGrantedAuthoritiesConverter'
+1693565937947	Rename local variable 'jwtGrantedConverter'

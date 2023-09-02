@@ -1,0 +1,37 @@
+package com.example.demo.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.demo.model.ApplicationUser;
+import com.example.demo.repository.RoleRepository;
+import com.example.demo.repository.UserRepository;
+
+
+
+@Service
+@Transactional
+public class AuthenticationService {
+
+	private UserRepository userRepository;
+	//Whenever we create a user, we also want to attach roles to it.
+	private RoleRepository roleRepository;
+	private PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	public AuthenticationService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.passwordEncoder = passwordEncoder;
+	}
+	
+	public ApplicationUser registerUser(String username, String password) {
+		
+		
+		
+		
+		return null;
+	}
+}

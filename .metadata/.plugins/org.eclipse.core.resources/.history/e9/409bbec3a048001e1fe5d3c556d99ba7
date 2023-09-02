@@ -1,0 +1,14 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import ch.qos.logback.core.subst.Token;
+
+@Service
+public class TokenService {
+
+	
+	public TokenService() {
+		
+	}
+}

@@ -1,0 +1,11 @@
+package com.example.demo.utils;
+/*
+ * Used to generate keys
+ */
+public class KeyGeneratorUtility {
+
+	
+	public static keyPairs() {
+		
+	}
+}

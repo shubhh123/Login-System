@@ -1,0 +1,9 @@
+package com.example.demo.model;
+
+public class LoginResponseDTO {
+
+	private ApplicationUser user;
+	private String jwt;
+	
+	
+}
